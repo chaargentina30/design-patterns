@@ -1,5 +1,8 @@
 package me.dhcha.designpatterns.singleton;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+
 /**
  * Hello world!
  *
@@ -16,23 +19,33 @@ public class App
     but multi-thread(example , web) is not safe.
 
     how to thread-safe
-    use keyword 'synchronized' ==> lock unlock
+        use keyword 'synchronized' ==> lock unlock
 
-    eager initialization ==> if many resource use or need eager initialization is not useful
+        eager initialization ==> if many resource use or need eager initialization is not useful
 
-    double-checked locking used keyword 'synchronized' ==> what is volatile 'keyword'
+        double-checked locking used keyword 'synchronized' ==> what is volatile 'keyword'
 
-    use static inner class
+        use static inner class
+
+    how to break singleton pattern
+        use reflection
+
 
 
 */
 
-    public static void main( String[] args ) {
+    public static void main( String[] args ) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
 
         Settings settings = Settings.getInstance();
-        Settings settings1 = Settings.getInstance();
+
+        Constructor<Settings> constructor = Settings.class.getDeclaredConstructor();
+        constructor.setAccessible(true);
+        Settings settings1 = constructor.newInstance();
+
+
+
         System.out.println(settings1 == settings);
-        System.out.println(settings1 == Settings.getInstance());
+
 
 
     }
