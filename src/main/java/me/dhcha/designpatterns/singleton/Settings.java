@@ -1,16 +1,12 @@
 package me.dhcha.designpatterns.singleton;
 
-public class Settings {
+import java.io.Serializable;
 
-    private Settings(){
+public enum Settings {
+
+    INSTANCE;
+
+    Settings() {
+
     }
-
-    private static class SettingHolder{
-        private static final Settings INSTANCE = new Settings();
-    }
-
-    public static Settings getInstance() {
-        return SettingHolder.INSTANCE;
-    }
-
 }

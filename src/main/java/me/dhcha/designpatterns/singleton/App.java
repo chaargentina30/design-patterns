@@ -1,5 +1,6 @@
 package me.dhcha.designpatterns.singleton;
 
+import java.io.*;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
@@ -7,7 +8,7 @@ import java.lang.reflect.InvocationTargetException;
  * Hello world!
  *
  */
-public class App 
+public class App
 {
 /*
     Singleton pattern
@@ -29,22 +30,30 @@ public class App
 
     how to break singleton pattern
         use reflection
+            ==> how to avoid refection : enum
+        use Serialization, Deserialization
+            ==> how to avoid Deserialization : readResolve
+
+
 
 
 
 */
 
-    public static void main( String[] args ) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+    public static void main( String[] args ) throws InvocationTargetException, InstantiationException, IllegalAccessException {
 
-        Settings settings = Settings.getInstance();
+        Settings settings = Settings.INSTANCE;
+        Settings settings1= null;
 
-        Constructor<Settings> constructor = Settings.class.getDeclaredConstructor();
-        constructor.setAccessible(true);
-        Settings settings1 = constructor.newInstance();
+        Constructor<?>[] constructors = Settings.class.getDeclaredConstructors();
+
+        for (Constructor<?> constructor : constructors) {
+            constructor.setAccessible(true);
+            settings1 = (Settings) constructor.newInstance("INSTANCE");
+        }
 
 
-
-        System.out.println(settings1 == settings);
+        System.out.println(settings == settings1);
 
 
 
