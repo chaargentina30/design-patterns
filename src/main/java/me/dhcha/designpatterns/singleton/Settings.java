@@ -2,16 +2,15 @@ package me.dhcha.designpatterns.singleton;
 
 public class Settings {
 
-    private static Settings instance;
-
     private Settings(){
     }
 
+    private static class SettingHolder{
+        private static final Settings INSTANCE = new Settings();
+    }
+
     public static Settings getInstance() {
-        if(instance==null) {
-            instance = new Settings();
-        }
-        return instance;
+        return SettingHolder.INSTANCE;
     }
 
 }

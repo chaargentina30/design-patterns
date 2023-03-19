@@ -14,6 +14,17 @@ public class App
     private, static
 
     but multi-thread(example , web) is not safe.
+
+    how to thread-safe
+    use keyword 'synchronized' ==> lock unlock
+
+    eager initialization ==> if many resource use or need eager initialization is not useful
+
+    double-checked locking used keyword 'synchronized' ==> what is volatile 'keyword'
+
+    use static inner class
+
+
 */
 
     public static void main( String[] args ) {
