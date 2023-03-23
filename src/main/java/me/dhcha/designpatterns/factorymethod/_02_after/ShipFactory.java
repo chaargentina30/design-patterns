@@ -27,8 +27,7 @@ public interface ShipFactory {
         System.out.println("prepare order " + name );
     }
 
-    private void sendEmailTo(String email, Ship ship) {
-        System.out.println("complete order " + ship.getName() );
-    }
+    void sendEmailTo(String email, Ship ship);
+
 
 }

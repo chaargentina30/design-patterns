@@ -3,13 +3,14 @@ package me.dhcha.designpatterns.factorymethod._02_after;
 public class Client {
 
     public static void main(String[] args) {
-        final Client client = new Client();
+        Client client = new Client();
+        client.print(new WhiteShipFactory(), "whiteship" , "dhc@mail.me");
+        client.print(new BlackShipFactory(), "blackship" , "dhc@mail.me");
 
-        Ship whiteship = new WhiteShipFactory().orderShip("whiteShip" , "dhc@mail.me");
-        System.out.println( whiteship.toString() );
 
-        Ship blackship = new BlackShipFactory().orderShip("blackship" , "dhc@mail.me");
-        System.out.println( blackship.toString() );
+    }
 
+    private void print(ShipFactory shipFactory, String name, String email) {
+        System.out.println(shipFactory.orderShip("whiteship" , "dhc@mail.me"));
     }
 }
