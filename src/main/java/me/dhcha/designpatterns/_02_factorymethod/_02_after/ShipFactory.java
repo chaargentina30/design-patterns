@@ -1,4 +1,4 @@
-package me.dhcha.designpatterns.factorymethod._02_after;
+package me.dhcha.designpatterns._02_factorymethod._02_after;
 
 public interface ShipFactory {
     default Ship orderShip(String name , String email ) {

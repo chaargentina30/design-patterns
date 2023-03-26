@@ -1,4 +1,4 @@
-package me.dhcha.designpatterns.singleton;
+package me.dhcha.designpatterns._01_singleton;
 
 public class ReviewApp {
 /*

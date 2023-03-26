@@ -1,4 +1,4 @@
-package me.dhcha.designpatterns.factorymethod._01_before;
+package me.dhcha.designpatterns._02_factorymethod._01_before;
 
 public class ShipFactory {
 

@@ -1,6 +1,5 @@
-package me.dhcha.designpatterns.singleton;
+package me.dhcha.designpatterns._01_singleton;
 
-import java.io.*;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
